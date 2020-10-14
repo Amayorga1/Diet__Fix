@@ -1,0 +1,48 @@
+﻿@model Diet__Fix.Models.DietType
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>DietType</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="KetoDesc" class="control-label"></label>
+                <input asp-for="KetoDesc" class="form-control" />
+                <span asp-validation-for="KetoDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaleoDesc" class="control-label"></label>
+                <input asp-for="PaleoDesc" class="form-control" />
+                <span asp-validation-for="PaleoDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PescDesc" class="control-label"></label>
+                <input asp-for="PescDesc" class="form-control" />
+                <span asp-validation-for="PescDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediDesc" class="control-label"></label>
+                <input asp-for="MediDesc" class="form-control" />
+                <span asp-validation-for="MediDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
