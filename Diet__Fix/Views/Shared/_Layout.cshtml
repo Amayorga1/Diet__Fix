@@ -8,7 +8,26 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    <div class="text-center">
+        <h1>DietFix</h1>
+    </div>
     
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a asp-action="Index" asp-controller="UserAccounts">My Account</a>
+            </div>
+            <div class="col">
+                <a asp-action="Index" asp-controller="Home">BMI / Calorie Calculator</a>
+            </div>
+            <div class="col">
+                <a asp-action="Index" asp-controller="CostAnalysis">Meal Cost</a>
+            </div>
+            <div class="col">
+                <a asp-action="Index" asp-controller="DietTypes">Diet Plans</a>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

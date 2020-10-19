@@ -25,6 +25,27 @@ namespace Diet__Fix.Controllers
             return View(await diet_FixContext.ToListAsync());
         }
 
+        public IActionResult KetoDiet()
+        {
+            return View();
+        }
+
+        public IActionResult PaleoDiet()
+        {
+            return View();
+        }
+
+        public IActionResult MediDiet()
+        {
+            return View();
+        }
+
+        public IActionResult IntermDiet()
+        {
+            return View();
+        }
+
+
         // GET: DietTypes/Details/5
         public async Task<IActionResult> Details(int? id)
         {

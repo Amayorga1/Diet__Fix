@@ -4,56 +4,81 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 style="text-align:center"> Diet Plans</h1>
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Keto Diet
+                </th>
+                <th>
+                    Paleo Diet
+                </th>
+                <th>
+                    Pesc Diet
+                </th>
+                <th>
+                    Medi Diet
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.KetoDesc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaleoDesc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PescDesc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MediDesc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.KetoDesc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaleoDesc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PescDesc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MediDesc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdNavigation.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            <tr>
+                <td style="">
+                    this is random ass information about ketodesc
+                </td>
+                <td>
+                    skdjfhkasldfhlkasjhfslkajshdf
+                </td>
+                <td>
+                    sadfasdfasdf asdfhksajhdfjkhasdf askldjklsjad<br />ajhsdfjkhasgdjkf
+                </td>
+                <td>
+                    asdfasdfadsf
+                </td>
+                <td>
+                </td>
+            </tr>
+        </tbody>
+    </table>*@
+<div class="row">
+    <div class="col-3" style="border:solid; border-color:gray">
+        <h2 style="text-align:center">Ketogenic</h2>
+        <br />
+        Often known as "Keto", is a low carb diet. This diet allows you to consume more calories from protien and fat with less
+        carbohydrate intake.
+        <br />
+        <a asp-action="KetoDiet" class="btn btn-info">More Info!</a>
+    </div>
+
+
+    <div class="col-3"style="border:solid; border-color:gray" >
+        <h2>Paleo</h2>
+        <br />
+       A dietary plan based on foods similar to what might have been eaten during the Paleolithic era
+        which dates from 2.5 million to 10,000 years ago.
+        <br />
+        <a asp-action="PaleoDiet" class="btn btn-info">More Info!</a>
+    </div>
+
+
+    <div class="col-3"style="border:solid; border-color:gray">
+        <h2>Mediterranean</h2>
+        <br />
+        A diet consisting of large quantities of fresh fruits, vegetables, nuts, fish, olive oil and red wine in moderation.
+        <br />
+        <a asp-action="MediDiet" class="btn btn-info">More Info!</a>
+    </div>
+
+
+    <div class="col-3" style="border:solid; border-color:gray">
+        <h2>Intermittent</h2>
+        <br />
+        A fasting diet focused on not what you can eat, but at what times you can eat.
+        <br />
+        <a asp-action="IntermDiet" class="btn btn-info">More Info!</a>
+    </div>
+</div>
+
