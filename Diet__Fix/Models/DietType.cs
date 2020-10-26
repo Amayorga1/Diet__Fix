@@ -11,6 +11,5 @@ namespace Diet__Fix.Models
         public string PescDesc { get; set; }
         public string MediDesc { get; set; }
 
-        public virtual UserAccount IdNavigation { get; set; }
     }
 }

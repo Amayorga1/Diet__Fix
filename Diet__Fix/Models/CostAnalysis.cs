@@ -10,7 +10,5 @@ namespace Diet__Fix.Models
         public int? PastCost { get; set; }
         public int? CurrentCost { get; set; }
         public int? CostComparison { get; set; }
-
-        public virtual UserAccount IdNavigation { get; set; }
     }
 }

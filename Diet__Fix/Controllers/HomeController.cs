@@ -6,34 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Diet__Fix.Models;
+using Diet__Fix.Areas.Identity.Pages.Account;
+using Microsoft.AspNetCore.Identity;
 
 namespace Diet__Fix.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly SignInManager<IdentityUser> signInManager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(SignInManager<IdentityUser> signInManager)
         {
-            _logger = logger;
+            this.signInManager = signInManager;
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Index2()
-        {
-            // populate data model...
-            DietType MyViewModel = new DietType()
+            if (signInManager.IsSignedIn(HttpContext.User))
             {
-                Id = 2,
-                KetoDesc = "something",
-                PaleoDesc = "something else"
-            };
-            return View("Index2", MyViewModel);
+                return RedirectToAction("Index", "DietTypes");
+            }
+            else
+            {
+                return LocalRedirect("/Identity/Account/Login");
+            }
         }
-
     }
 }
