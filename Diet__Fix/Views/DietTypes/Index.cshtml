@@ -1,62 +1,129 @@
 ﻿@model IEnumerable<Diet__Fix.Models.DietType>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@*<h1 style="text-align:center"> Diet Plans</h1>*@
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .column {
+            float:left;
+        }
+        .dieList {
+            width: 30%;
+            border: solid 2px black;
+        }
 
-<h1 style="text-align:center"> Diet Plans</h1>
+        .diet {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+        }
+        .break {
+            width:10%;
+        }
+
+        .photos {
+            width: 60%;
+            border: solid 2px black;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @@media screen and (max-width: 1000px) {
+            .dielist {
+                width: 50%;
+            }
+
+            .photos {
+                width: 50%;
+            }
+
+            .break{
+                display:none;
+            }
+        }
+
+        @@media screen and (max-width: 600px) {
+            .dielist {
+                width: 100%;
+            }
+
+            .photos {
+                width: 100%;
+            }
+            .break{
+                display:none;
+            }
+        }
+
+        
+    </style>
+</head>
+<html>
+<body>
+    <div class="row" style="display:table">
+
+        <div class="column dielist">
+            <div class="diet" style="border:solid; border-color:black">
+                <h2>Keto</h2>
+                <strong>
+                    The Ketogenic diet, often known as "Keto",
+                    is a low carb diet. This diet allows you to consume more calories from protien and fat with less
+                    carbohydrate intake.
+                </strong>
+                <a asp-action="KetoDiet" class="btn btn-info">More Info!</a>
+            </div>
 
 
-<div class="row">
-    <div class="col-3" style="border:solid; border-color:black">
-        <h2 style="text-align:center">Keto</h2>
-        <br />
-        <strong>The Ketogenic diet, often known as "Keto", 
-        is a low carb diet. This diet allows you to consume more calories from protien and fat with less
-        carbohydrate intake.</strong>
-        <br />
-        <a asp-action="KetoDiet" class="btn btn-info">More Info!</a>
+            <div class="diet" style="border:solid; border-color:black">
+                <h2>Paleo</h2>
+                <strong>
+                    A dietary plan based on foods similar to what might have been eaten during the Paleolithic era
+                    which dates from 2.5 million to 10,000 years ago.
+                </strong>
+                <a asp-action="PaleoDiet" class="btn btn-info">More Info!</a>
+            </div>
+
+
+            <div class="diet" style="border:solid; border-color:black">
+                <h2>Mediterranean</h2>
+                <strong>A diet consisting of large quantities of fresh fruits, vegetables, nuts, fish, olive oil and red wine in moderation.</strong>
+                <a asp-action="MediDiet" class="btn btn-info">More Info!</a>
+            </div>
+
+
+            <div class="diet" style="border:solid; border-color:black">
+                <h2>Intermittent</h2>
+                <strong>A fasting diet focused on not what you can eat, but at what times you can eat.</strong>
+                <a asp-action="IntermDiet" class="btn btn-info">More Info!</a>
+            </div>
+        </div>
+
+        <div class="column break"></div>
+        <div class="column photos">
+            <p>Add photos here later</p>
+        </div>
     </div>
+</body>
+</html>
 
 
-    <div class="col-3" style="border:solid; border-color:black">
-        <h2>Paleo</h2>
-        <br />
-        <strong>A dietary plan based on foods similar to what might have been eaten during the Paleolithic era
-        which dates from 2.5 million to 10,000 years ago.</strong>
-        <br />
-        <a asp-action="PaleoDiet" class="btn btn-info">More Info!</a>
-    </div>
 
+@*<div>
 
-    <div class="col-3" style="border:solid; border-color:black">
-        <h2>Mediterranean</h2>
-        <br />
-        <strong>A diet consisting of large quantities of fresh fruits, vegetables, nuts, fish, olive oil and red wine in moderation.</strong>
-        <br />
-        <a asp-action="MediDiet" class="btn btn-info">More Info!</a>
-    </div>
+        <h2>Calorie Calculator</h2>
+    <section>
+    <strong>If you are unsure about your calorie intake, Please use the Calorie Calculator provided below! </strong>
 
+    <script type="text/javascript"
+            id="WolframAlphaScript3f0b9e714dc05b05aad90cae08d25e3b"
+            src="//www.wolframalpha.com/widget/widget.jsp?id=3f0b9e714dc05b05aad90cae08d25e3b">
 
-    <div class="col-3" style="border:solid; border-color:black">
-        <h2>Intermittent</h2>
-        <br />
-        <strong>A fasting diet focused on not what you can eat, but at what times you can eat.</strong>
-        <br />
-        <a asp-action="IntermDiet" class="btn btn-info">More Info!</a>
-    </div>
-</div>
-
-<div>
-
-    <h2>Calorie Calculator</h2>
-<section>
-<strong>If you are unsure about your calorie intake, Please use the Calorie Calculator provided below! </strong>
-
-<script type="text/javascript"
-        id="WolframAlphaScript3f0b9e714dc05b05aad90cae08d25e3b"
-        src="//www.wolframalpha.com/widget/widget.jsp?id=3f0b9e714dc05b05aad90cae08d25e3b">
-
-</script>
-    </section>
-    </div>
+    </script>
+        </section>
+        </div>*@

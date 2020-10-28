@@ -27,6 +27,7 @@ a {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
+  background-color: cyan;
   font-size: 14px;
 }
 @media (min-width: 768px) {
@@ -56,6 +57,9 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
+}
+header{
+    background-color:darkgray;
 }
 
 body {
