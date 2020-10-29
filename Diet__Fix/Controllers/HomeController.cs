@@ -19,7 +19,10 @@ namespace Diet__Fix.Controllers
         {
             this.signInManager = signInManager;
         }
-
+        public IActionResult Index1()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             if (signInManager.IsSignedIn(HttpContext.User))
