@@ -1,0 +1,51 @@
+﻿@model UserInfo
+    <head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+<div class="container" style="padding-top:20px">
+    <div class="card" style="text-align:center">
+        <h1>Cost Analisys</h1>
+        <h3>Testtesttest</h3>
+        <div>
+            <input id="cost" type="text" style="margin:20px" />
+            <div style="padding:20px">
+                <button onclick="openModal(300)" class="btn btn-primary">Keto</button>
+                <button onclick="openModal(200)" class="btn btn-primary">Palio</button>
+                <button onclick="openModal(100)" class="btn btn-primary">Medi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="w3-modal" id="savingsdisplay">
+    <div class="w3-modal-content" style="width:350px">
+            <div class="w3-container" style="text-align:center; padding:20px">
+                <label>Amount of Savings</label>
+                <input asp-for="@Model.Savings" disabled id="savings" />
+            </div>
+            <div style="text-align:center; padding:20px">
+                <a asp-action="DietDetails" class="btn btn-primary">Learn More</a>
+                <a class="btn btn-warning" id="close">Go Back</a>
+            </div>
+    </div>
+</div>
+
+<script>
+    function openModal(cost, id) {
+        var savings = document.getElementById('cost').value - cost;
+        var modal = document.getElementById('savingsdisplay');
+        modal.style.display = 'block';
+        document.getElementById('savings').value = savings;
+
+        document.getElementById('close').addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+    
+</script>

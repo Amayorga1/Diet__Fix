@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Diet__Fix.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Diet__Fix.Controllers
 {
@@ -14,13 +15,19 @@ namespace Diet__Fix.Controllers
     public class CostAnalysisController : Controller
     {
         private readonly Diet_FixContext _context;
+        private readonly UserManager<IdentityUser> userManager;
 
-        public CostAnalysisController(Diet_FixContext context)
+        public CostAnalysisController(Diet_FixContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            this.userManager = userManager;
         }
 
-        public IActionResult Index()
+        public IActionResult CostView()
+        {
+            return View();
+        }
+        public IActionResult DietDetails()
         {
             return View();
         }

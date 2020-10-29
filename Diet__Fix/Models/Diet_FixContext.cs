@@ -16,7 +16,7 @@ namespace Diet__Fix.Models
         {
         }
 
-        public virtual DbSet<CostAnalysis> CostAnalysis { get; set; }
+        public virtual DbSet<UserInfo> UserInfos { get; set; }
         public virtual DbSet<DietType> DietType { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
