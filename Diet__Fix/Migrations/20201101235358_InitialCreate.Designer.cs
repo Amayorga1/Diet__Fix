@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Diet__Fix.Migrations
 {
     [DbContext(typeof(Diet_FixContext))]
-    [Migration("20201026021425_InitialCreate")]
+    [Migration("20201101235358_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,30 +20,6 @@ namespace Diet__Fix.Migrations
                 .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Diet__Fix.Models.CostAnalysis", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("CostComparison")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CostOptions")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CurrentCost")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PastCost")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CostAnalysis");
-                });
 
             modelBuilder.Entity("Diet__Fix.Models.DietType", b =>
                 {
@@ -67,6 +43,30 @@ namespace Diet__Fix.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DietType");
+                });
+
+            modelBuilder.Entity("Diet__Fix.Models.UserInfo", b =>
+                {
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("BMI")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Diet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Savings")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Name");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserInfos");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -263,6 +263,13 @@ namespace Diet__Fix.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Diet__Fix.Models.UserInfo", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

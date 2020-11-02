@@ -1,0 +1,50 @@
+﻿@model UserInfo
+
+
+<h4>Account</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UserAccount">
+            <input asp-for="UserId" hidden />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" required />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BMI" class="control-label"></label>
+                <input asp-for="BMI" class="form-control" type="number" />
+                <span asp-validation-for="BMI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diet" class="control-label"></label>
+                <select asp-for="Diet" class="form-control form-control-sm">
+                    <option disabled>--Select a Diet--</option>
+                    <option>Keto</option>
+                    <option>Paleo</option>
+                    <option>Mediteranian</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Savings" class="control-label"></label>
+                <input asp-for="Savings" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <div class="yz-widget" data-calculator-type="bmi" data-language="en" data-unit-system="imperial" data-background-color="#EEEEEE" data-text-color="#212121" data-primary-color="#03A9F4" data-alternate-background-color="#FFFFFF" data-alternate-text-color="#FFFFFF" data-secondary-color="#FFC107"><span class="yz-copyright">Powered by <a href="https://www.yazio.com/en/bmi-calculator">YAZIO</a></span></div>
+        <script src="https://widget.yazio.com/calculator.js" async></script>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

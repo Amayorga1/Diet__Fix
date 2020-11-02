@@ -47,22 +47,6 @@ namespace Diet__Fix.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CostAnalysis",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CostOptions = table.Column<string>(nullable: true),
-                    PastCost = table.Column<int>(nullable: true),
-                    CurrentCost = table.Column<int>(nullable: true),
-                    CostComparison = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CostAnalysis", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "DietType",
                 columns: table => new
                 {
@@ -184,6 +168,27 @@ namespace Diet__Fix.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "UserInfos",
+                columns: table => new
+                {
+                    Name = table.Column<string>(nullable: false),
+                    BMI = table.Column<double>(nullable: false),
+                    Diet = table.Column<string>(nullable: true),
+                    Savings = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserInfos", x => x.Name);
+                    table.ForeignKey(
+                        name: "FK_UserInfos_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -222,6 +227,11 @@ namespace Diet__Fix.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserInfos_UserId",
+                table: "UserInfos",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -242,10 +252,10 @@ namespace Diet__Fix.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "CostAnalysis");
+                name: "DietType");
 
             migrationBuilder.DropTable(
-                name: "DietType");
+                name: "UserInfos");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
