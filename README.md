@@ -6,10 +6,10 @@ Starting out choosing the project was difficult because I was not really sure ho
 on the fly and being able to make everything work with trial and error. Since my project was more of an informational guide, I ended up spending too much time on 
 the info and did not have enough time to design the project how I wanted to. The project ended up having most of the requirements but could have been better. 
 
-# Code and Architecture Walk-Through / Poduct Demonstration
+# Code and Architecture Walk-Through / Product Demonstration
 
 
-#Lessons Learned 
+# Lessons Learned 
 
 What did you do right?
 I got the overall requirements to work, as well as most of the functionality. 
